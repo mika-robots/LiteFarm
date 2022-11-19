@@ -8,6 +8,7 @@ on:
 
 jobs:
   build:
+    environment: e2e_test
     timeout-minutes: 10
     runs-on: ubuntu-20.04
     env:
