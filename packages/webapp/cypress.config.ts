@@ -2,6 +2,7 @@ import { defineConfig } from 'cypress';
 
 export default defineConfig({
   projectId: '5xsaso',
+  defaultCommandTimeout: 15000,
   env: {
     'cypress-react-selector': {
       root: '#root',
