@@ -82,7 +82,14 @@ jobs:
           spec: cypress/e2e/happyPath.spec.js
 
       - name: Set code coverage commit status and update coverage badge
-        run: cd packages/webapp && npx set-gh-status && npx update-badge
+        working-directory: packages/webapp
+        run: |
+          ls -l
+          npx nyc report --reporter=text-summary
+          npx nyc check-coverage
+          cd coverage
+          ls -l
+          npx set-gh-status && npx update-badge
         env: 
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
