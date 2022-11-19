@@ -96,10 +96,11 @@ jobs:
         run: |
           ls -l
           npx nyc report --reporter=text-summary
-          npx nyc check-coverage
           cd coverage
           ls -l
+          cd ..
           npx set-gh-status && npx update-badge
+          npx nyc check-coverage || true
         env: 
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
