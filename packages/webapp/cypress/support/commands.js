@@ -151,7 +151,6 @@ Cypress.Commands.add('createACleaningTask', (taskType_id) => {
     .should('exist')
     .and('not.be.disabled')
     .click({ force: true });
-  cy.wait(20 * 1000);
   cy.get('[data-cy=map-selectLocation]').click(530, 216, {
     force: false,
   });
@@ -206,7 +205,6 @@ Cypress.Commands.add('createAFieldWorkTask', () => {
     .should('exist')
     .and('not.be.disabled')
     .click({ force: true });
-  cy.wait(20 * 1000);
   cy.get('[data-cy=map-selectLocation]').click(530, 216, {
     force: false,
   });
