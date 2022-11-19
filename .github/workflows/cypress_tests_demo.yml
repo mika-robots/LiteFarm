@@ -83,6 +83,7 @@ jobs:
 
       - name: Archive code coverage results
         uses: actions/upload-artifact@v3
+        continue-on-error: true
 
         with:
           working-directory: packages/webapp
@@ -90,6 +91,7 @@ jobs:
           path: coverage/code-summary.json
 
       - name: Set code coverage commit status and update coverage badge
+        continue-on-error: true
         working-directory: packages/webapp
         run: |
           ls -l
