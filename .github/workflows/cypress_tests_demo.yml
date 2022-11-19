@@ -81,6 +81,14 @@ jobs:
           group: 'UI - Chrome'
           spec: cypress/e2e/happyPath.spec.js
 
+      - name: Archive code coverage results
+        uses: actions/upload-artifact@v3
+
+        with:
+          working-directory: packages/webapp
+          name: code-coverage-report
+          path: coverage/code-summary.json
+
       - name: Set code coverage commit status and update coverage badge
         working-directory: packages/webapp
         run: |
