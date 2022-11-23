@@ -81,36 +81,10 @@ jobs:
           group: 'UI - Chrome'
           spec: cypress/e2e/happyPath.spec.js
 
-      - name: Archive code coverage results
-        uses: actions/upload-artifact@v3
-        continue-on-error: true
-        with:
-          name: code-coverage-report
-          path: coverage/coverage-summary.json
-          working-directory: packages/webapp
-
-      - run: cat packages/webapp/coverage/coverage-summary.json
-
-      - name: Create Coverage Badges
-        uses: jaywcjlove/coverage-badges-cli@main
-        with:
-          style: flat
-          label: flat style
-          source: packages/webapp/coverage/coverage-summary.json
-          output: packages/webapp/coverage/badges-flat.svg
-
-      - name: Deploy Coverage
-        uses: peaceiris/actions-gh-pages@v3
-        # if: github.ref == 'refs/heads/integration'
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./packages/webapp/coverage
-          destination_dir: e2e_coverage
-
       - name: Set code coverage commit status and update coverage badge
         continue-on-error: true
-        working-directory: packages/webapp
-        run: npx set-gh-status && npx update-badge
+        # run: npx set-gh-status && npx update-badge
+        run: npx -p check-code-coverage update-badge --from '${GITHUB_WORKSPACE}/packages/webapp/coverage/coverage-summary.json'
         env: 
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
