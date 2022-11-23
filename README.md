@@ -1,7 +1,7 @@
 
 | Test  | Coverage |
 | ------------- | ------------- |
-| E2E FE Test  | ![check-code-coverage](https://img.shields.io/badge/code--coverage-51.18%25-red)  |
+| E2E FE Test  | ![check-code-coverage](https://img.shields.io/badge/code--coverage-51.2%25-red)  |
 
 
 
