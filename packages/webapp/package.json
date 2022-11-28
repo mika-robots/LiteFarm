@@ -2,6 +2,9 @@
   "name": "litefarm-webapp",
   "version": "3.2.5",
   "description": "LiteFarm Web application",
+  "engines": {
+    "node": " 16.15.0"
+  },
   "scripts": {
     "dev": "CYPRESS_COVERAGE=TRUE  vite",
     "build": "tsc && vite build",
